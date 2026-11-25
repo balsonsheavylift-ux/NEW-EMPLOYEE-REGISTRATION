@@ -1,10 +1,12 @@
 :root {
   --brand: #0097b2;
-  --brand-dark: #08798d;
+  --brand-dark: #066375;
+  --brand-deep: #073946;
   --brand-soft: #eaf6f8;
+  --accent: #f59e0b;
   --ink: #102d35;
   --muted: #64748b;
-  --line: #dde6ec;
+  --line: #d8e4ea;
   --bg: #eef4f7;
   --card: #ffffff;
   --ok: #0f766e;
@@ -14,7 +16,7 @@
   --warn: #b45309;
   --warn-soft: #fef3c7;
   --radius: 16px;
-  --shadow: 0 1px 2px rgba(16, 45, 53, 0.04), 0 8px 24px rgba(16, 45, 53, 0.07);
+  --shadow: 0 2px 4px rgba(7, 57, 70, 0.05), 0 10px 28px rgba(7, 57, 70, 0.08);
 }
 
 * {
@@ -26,73 +28,207 @@
 body {
   font: 15px/1.55 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   color: var(--ink);
-  background: radial-gradient(900px 420px at 50% -150px, #dbf0f5, transparent 70%), var(--bg);
+  background:
+    radial-gradient(950px 420px at 50% -120px, rgba(0, 151, 178, 0.16), transparent 70%),
+    linear-gradient(180deg, #e7f2f6 0%, var(--bg) 320px);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 28px 16px 48px;
+  padding: 24px 16px 48px;
   -webkit-font-smoothing: antialiased;
 }
 
 .wrap {
-  width: min(760px, 100%);
+  width: min(780px, 100%);
 }
 
 .wrap-narrow {
-  width: min(620px, 100%);
+  width: min(660px, 100%);
 }
 
-.brand-head {
+/* BALSONS Hero Brand Banner (Portal) */
+.hero-brand {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--brand-deep) 0%, var(--brand-dark) 55%, var(--brand) 100%);
+  color: #fff;
+  border-radius: 22px;
+  padding: 28px 24px 26px;
   text-align: center;
-  margin-bottom: 22px;
+  box-shadow: 0 16px 36px rgba(7, 57, 70, 0.22);
+  margin-bottom: 20px;
+}
+
+.hero-brand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.hero-brand > * {
+  position: relative;
+  z-index: 1;
+}
+
+.logo-frame {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 10px 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  margin-bottom: 14px;
 }
 
 .logo {
-  height: 56px;
+  height: 50px;
   width: auto;
-  margin-bottom: 12px;
+  display: block;
 }
 
 .eyebrow {
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 800;
-  letter-spacing: 1.4px;
-  color: var(--brand-dark);
+  letter-spacing: 1.8px;
+  color: #a5f3fc;
   text-transform: uppercase;
 }
 
-h1 {
-  font-size: clamp(22px, 5vw, 30px);
+.hero-brand h1 {
+  font-size: clamp(23px, 5vw, 32px);
   font-weight: 900;
-  line-height: 1.2;
-  margin: 4px 0 6px;
+  line-height: 1.18;
+  margin: 6px 0 8px;
+  color: #fff;
 }
 
-.sub {
-  color: var(--muted);
+.hero-brand .sub {
+  color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
 }
 
-.sub span {
+.hero-brand .sub span {
   display: block;
   font-size: 13px;
-  margin-top: 2px;
+  color: #cffafe;
+  margin-top: 3px;
 }
 
-/* Portal Cards */
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 5px 14px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #fff;
+}
+
+.hero-pill .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Registration Top Brand Bar */
+.brand-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--brand-deep) 0%, var(--brand-dark) 100%);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 22px rgba(7, 57, 70, 0.16);
+}
+
+.brand-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mini .logo-frame {
+  margin: 0;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.brand-mini .logo {
+  height: 30px;
+}
+
+.brand-mini-text b {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+}
+
+.brand-mini-text small {
+  display: block;
+  font-size: 11px;
+  color: #a5f3fc;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 7px 14px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: 0.15s ease;
+  white-space: nowrap;
+}
+
+.back-link:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+/* Portal Cards & Checklist */
+.section-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+  margin: 4px 0 10px 4px;
+}
+
 .list {
   display: grid;
   gap: 14px;
-  margin-top: 22px;
 }
 
 a.p {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 16px;
   background: var(--card);
   border: 1px solid var(--line);
+  border-left: 5px solid var(--brand);
   border-radius: var(--radius);
   padding: 20px;
   text-decoration: none;
@@ -105,16 +241,17 @@ a.p:hover,
 a.p:focus-visible {
   border-color: var(--brand);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 151, 178, 0.16);
+  box-shadow: 0 14px 30px rgba(0, 151, 178, 0.18);
   outline: none;
 }
 
 .ic {
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   border-radius: 14px;
-  background: var(--brand-soft);
-  color: var(--brand);
+  background: linear-gradient(135deg, var(--brand-soft), #d4eef4);
+  color: var(--brand-dark);
+  border: 1px solid #bfe3ec;
   display: grid;
   place-items: center;
   flex: none;
@@ -126,6 +263,7 @@ a.p:focus-visible {
   display: block;
   font-size: 17px;
   font-weight: 800;
+  color: var(--ink);
 }
 
 .p small {
@@ -134,27 +272,51 @@ a.p:focus-visible {
   font-size: 13px;
 }
 
+.p-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+}
+
 .p code {
   display: inline-block;
-  margin-top: 6px;
   font: 700 11px/1 'Inter', sans-serif;
   background: var(--brand);
   color: #fff;
   border-radius: 99px;
-  padding: 4px 10px;
+  padding: 5px 10px;
   letter-spacing: 0.3px;
+}
+
+.p .status-tag {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: 99px;
+  padding: 4px 9px;
 }
 
 .go {
   margin-left: auto;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--brand);
   color: #fff;
   display: grid;
   place-items: center;
   flex: none;
+  transition: 0.18s ease;
+}
+
+a.p:hover .go {
+  background: var(--brand-dark);
+  transform: translateX(2px);
 }
 
 .go svg {
@@ -167,35 +329,58 @@ a.p:focus-visible {
   stroke-linejoin: round;
 }
 
-/* Registration Form Layout */
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--brand-dark);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 13.5px;
-  padding: 7px 12px;
-  border-radius: 99px;
+.prep-card {
+  margin-top: 18px;
   background: var(--card);
   border: 1px solid var(--line);
-  transition: 0.15s ease;
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: var(--shadow);
 }
 
-.back-link:hover {
-  border-color: var(--brand);
+.prep-card h3 {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--brand-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+}
+
+.prep-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 14px;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+@media (max-width: 520px) {
+  .prep-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prep-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prep-item span {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
   background: var(--brand-soft);
+  color: var(--brand-dark);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 900;
+  flex: none;
 }
 
+/* Registration Form Layout */
 .project-banner {
   background: var(--card);
   border: 1px solid var(--line);
@@ -281,8 +466,8 @@ a.p:focus-visible {
   width: 26px;
   height: 26px;
   border-radius: 8px;
-  background: var(--brand-soft);
-  color: var(--brand-dark);
+  background: var(--brand);
+  color: #fff;
   display: grid;
   place-items: center;
   font-size: 12px;

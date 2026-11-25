@@ -25,7 +25,10 @@
           <span>
             <b>${p.name}</b>
             <small>${p.location}</small>
-            <code>${p.code}</code>
+            <div class="p-tags">
+              <code>${p.code}</code>
+              <span class="status-tag">Active Site</span>
+            </div>
           </span>
           <span class="go" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
@@ -44,9 +47,17 @@
       !cfg.APPS_SCRIPT_URL.includes("PASTE_YOUR_GOOGLE_APPS_SCRIPT");
 
     root.innerHTML = `
-      <div class="topbar">
+      <div class="brand-topbar">
+        <div class="brand-mini">
+          <div class="logo-frame">
+            <img class="logo" alt="BALSONS Heavy Lift &amp; Shift" />
+          </div>
+          <div class="brand-mini-text">
+            <b>BALSONS HEAVY LIFT &amp; SHIFT</b>
+            <small>Employee Registration Portal</small>
+          </div>
+        </div>
         <a class="back-link" href="index.html">← All Projects</a>
-        <span class="eyebrow">BALSONS HEAVY LIFT &amp; SHIFT</span>
       </div>
 
       <div class="project-banner">
@@ -335,6 +346,7 @@
       </section>
     `;
 
+    setLogoFallback(root.querySelector(".logo"));
     bindRegistrationEvents(project);
   }
 
