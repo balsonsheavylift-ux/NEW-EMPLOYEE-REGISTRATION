@@ -3,7 +3,7 @@
  * After deploying apps-script/Code.gs as a Web App, paste its URL below.
  */
 window.BALSONS_CONFIG = {
-  APPS_SCRIPT_URL: "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE",
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbz_HFhaxzxWpWibT4OWauX_IOZmxT5rLUCYi0DMsvdggzkOrBZM8__WcaAPmOV1HQT8/exec",
   MAX_FILE_SIZE_MB: 2,
   LOGO_LOCAL: "assets/images/balsons-logo.png",
   LOGO_FALLBACK: "https://lh3.googleusercontent.com/d/1HB7sGaQ4f2qq0NNzgBQrSpUe2DJWV4uh",
