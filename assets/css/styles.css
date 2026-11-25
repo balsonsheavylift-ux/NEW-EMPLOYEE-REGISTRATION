@@ -40,11 +40,11 @@ body {
 }
 
 .wrap {
-  width: min(780px, 100%);
+  width: min(820px, 100%);
 }
 
 .wrap-narrow {
-  width: min(660px, 100%);
+  width: min(700px, 100%);
 }
 
 /* BALSONS Hero Brand Banner (Portal) */
@@ -57,7 +57,7 @@ body {
   padding: 28px 24px 26px;
   text-align: center;
   box-shadow: 0 16px 36px rgba(7, 57, 70, 0.22);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .hero-brand::before {
@@ -110,7 +110,7 @@ body {
 }
 
 .hero-brand .sub {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 14px;
 }
 
@@ -121,18 +121,25 @@ body {
   margin-top: 3px;
 }
 
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
 .hero-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 14px;
   padding: 5px 14px;
   border-radius: 99px;
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.25);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.5px;
   color: #fff;
 }
 
@@ -141,6 +148,62 @@ body {
   height: 7px;
   border-radius: 50%;
   background: var(--accent);
+}
+
+.hero-pill .dot.online {
+  background: #34d399;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.25);
+}
+
+/* Portal Stats Strip */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 540px) {
+  .stats-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-box {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-ic {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--brand-soft);
+  color: var(--brand-dark);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 15px;
+  flex: none;
+}
+
+.stat-box b {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.stat-box small {
+  display: block;
+  font-size: 11.5px;
+  color: var(--muted);
 }
 
 /* Registration Top Brand Bar */
@@ -207,13 +270,20 @@ body {
 }
 
 /* Portal Cards & Checklist */
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 4px 4px 10px;
+}
+
 .section-label {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--brand-dark);
-  margin: 4px 0 10px 4px;
 }
 
 .list {
@@ -295,8 +365,8 @@ a.p:focus-visible {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.4px;
-  background: #fef3c7;
-  color: #92400e;
+  background: #dcfce7;
+  color: #166534;
   border-radius: 99px;
   padding: 4px 9px;
 }
@@ -334,7 +404,7 @@ a.p:hover .go {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 16px 20px;
+  padding: 18px 20px;
   box-shadow: var(--shadow);
 }
 
@@ -344,13 +414,13 @@ a.p:hover .go {
   color: var(--brand-dark);
   text-transform: uppercase;
   letter-spacing: 0.6px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .prep-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px 14px;
+  gap: 10px 14px;
   font-size: 13px;
   color: var(--ink);
 }
@@ -380,6 +450,49 @@ a.p:hover .go {
   flex: none;
 }
 
+/* Progress Bar */
+.progress-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+  position: sticky;
+  top: 10px;
+  z-index: 20;
+}
+
+.progress-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 7px;
+}
+
+.progress-head span:last-child {
+  color: var(--brand-dark);
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 99px;
+  background: #e2edf2;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--brand), #0ea5e9);
+  border-radius: 99px;
+  transition: width 0.25s ease;
+}
+
 /* Registration Form Layout */
 .project-banner {
   background: var(--card);
@@ -391,7 +504,7 @@ a.p:hover .go {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .project-banner .meta b {
@@ -414,6 +527,13 @@ a.p:hover .go {
   color: #fff;
   border-radius: 99px;
   padding: 4px 10px;
+}
+
+.mandatory-note {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: 14px;
+  padding-left: 4px;
 }
 
 .alert {
@@ -504,14 +624,36 @@ a.p:hover .go {
   gap: 5px;
 }
 
+.field-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 .field label {
   font-size: 12.5px;
   font-weight: 700;
   color: var(--ink);
 }
 
+.mini-btn {
+  border: none;
+  background: var(--brand-soft);
+  color: var(--brand-dark);
+  font: 700 11px/1 'Inter', sans-serif;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.mini-btn:hover {
+  background: #cdebf2;
+}
+
 .req {
   color: var(--err);
+  font-weight: 900;
 }
 
 .hint {
@@ -544,7 +686,8 @@ a.p:hover .go {
 
 .field input.invalid,
 .field select.invalid,
-.field textarea.invalid {
+.field textarea.invalid,
+.file-box.invalid {
   border-color: var(--err);
   background: #fffafa;
 }
@@ -577,6 +720,19 @@ a.p:hover .go {
   border-radius: 12px;
   padding: 12px;
   background: #f8fbfc;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: 0.15s ease;
+}
+
+.file-box.ready {
+  border-color: var(--ok);
+  background: #f0fdfa;
+}
+
+.file-box label {
+  font-size: 13px;
 }
 
 .file-box input[type='file'] {
@@ -587,10 +743,17 @@ a.p:hover .go {
   padding: 4px 0;
 }
 
+.file-preview {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+
 .file-status {
   font-size: 11.5px;
   color: var(--muted);
-  margin-top: 4px;
 }
 
 .actions {
@@ -598,7 +761,7 @@ a.p:hover .go {
   flex-wrap: wrap;
   gap: 12px;
   justify-content: flex-end;
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
 .btn {
@@ -613,6 +776,7 @@ a.p:hover .go {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  text-decoration: none;
 }
 
 .btn-primary {
@@ -663,13 +827,13 @@ a.p:hover .go {
 .reg-id {
   display: inline-block;
   margin: 12px 0;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 99px;
   background: var(--brand-soft);
   color: var(--brand-dark);
   font-weight: 800;
-  font-size: 15px;
-  letter-spacing: 0.4px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
 }
 
 .foot {
@@ -688,4 +852,16 @@ a.p:hover .go {
 
 .hidden {
   display: none !important;
+}
+
+@media print {
+  body {
+    background: #fff;
+    padding: 0;
+  }
+  .brand-topbar,
+  .actions,
+  .progress-card {
+    display: none !important;
+  }
 }

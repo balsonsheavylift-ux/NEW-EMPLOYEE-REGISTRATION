@@ -72,9 +72,13 @@ function doPost(e) {
     const raw = e && e.postData && e.postData.contents ? e.postData.contents : "{}";
     const payload = JSON.parse(raw);
     const emp = payload.employee || {};
+    const files = payload.files || {};
 
     if (!emp.fullName || !emp.mobile || !emp.aadhaar) {
       throw new Error("Missing required employee fields.");
+    }
+    if (!files.photo || !files.aadhaar || !files.bankDoc) {
+      throw new Error("All 3 compulsory documents (Photo, Aadhaar, PAN/Bank) are required.");
     }
 
     const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -90,7 +94,7 @@ function doPost(e) {
     );
 
     // 2. Save uploaded documents into the Vault folder
-    const fileUrls = saveUploadedFiles(payload.files || {}, empFolder);
+    const fileUrls = saveUploadedFiles(files, empFolder);
 
     // 3. Generate and save printable PDF of the submitted form into the Vault folder
     const formPdfUrl = saveRegistrationPdf(empFolder, {
